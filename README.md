@@ -35,3 +35,12 @@ Index (UHEI), NDVI, and green infrastructure data.
 ## Status
 Project setup in progress.
 
+
+## steps 
+- [ ] Extract UHEI and NDVI data from TALEA Green Cells dataset
+- [ ] Load road network using OpenStreetMap
+- [ ] Assign heat-aware cost to road segments
+- [ ] Implement shortest-path vs heat-optimized routing
+- [ ] Visualize routes on interactive map
+
+
