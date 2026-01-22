@@ -5,7 +5,7 @@ import osmnx as ox
 import networkx as nx
 import geopandas as gpd
 
-# --------- TUNE THESE TO CHANGE THE ROUTE ---------
+# --------- CHANGE THESE TO CHANGE THE ROUTE ---------
 distance_factor = 1   # weight on distance   (0 = ignore distance, 1 = only distance)
 heat_factor     = 0   # weight on heat_cost (0 = ignore heat, 1 = only heat)
 # --------------------------------------------------
