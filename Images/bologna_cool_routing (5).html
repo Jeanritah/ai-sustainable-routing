@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6112f46145d72cabe03db1b434a590ca {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position:fixed; bottom:30px; left:30px; z-index:1000;
+     background:white; padding:15px; border-radius:10px;
+     border:2px solid grey; font-size:14px; line-height:1.8">
+    <b>Bologna Cool Routing</b><br><br>
+    <span style="color:red">━━━</span> Shortest Route (4565m)<br>
+    <span style="color:green">━━━</span> Comfort Route (4801m)<br><br>
+    <b>Comfort route:</b><br>
+    8.7% greener<br>
+    2.0% cooler<br>
+    +236m extra walking
+</div>
+    
+            <div class="folium-map" id="map_6112f46145d72cabe03db1b434a590ca" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6112f46145d72cabe03db1b434a590ca = L.map(
+                "map_6112f46145d72cabe03db1b434a590ca",
+                {
+                    center: [44.4949, 11.3426],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 14,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_41d4a38031af994314221ca9a7a4b075 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_41d4a38031af994314221ca9a7a4b075.addTo(map_6112f46145d72cabe03db1b434a590ca);
+        
+    
+            var poly_line_1ca5e8c80d102e849faa4fd9610850ab = L.polyline(
+                [[44.5150671, 11.3453814], [44.5141476, 11.3453234], [44.5139497, 11.3453159], [44.513293, 11.3452607], [44.5132514, 11.3452507], [44.5132172, 11.3455049], [44.5131505, 11.3454883], [44.5131461, 11.3455217], [44.5120547, 11.3467603], [44.511876, 11.346751], [44.5118527, 11.3469304], [44.5118768, 11.3470031], [44.5117434, 11.3470455], [44.5116748, 11.347189], [44.5116805, 11.347225], [44.5114143, 11.3473094], [44.5113448, 11.3473468], [44.5111904, 11.3473007], [44.5111674, 11.3474451], [44.5110768, 11.3474196], [44.5110275, 11.347414], [44.51096, 11.3473944], [44.5108956, 11.3473762], [44.5108715, 11.3473444], [44.5099728, 11.3470863], [44.5100013, 11.3468817], [44.5099647, 11.3468553], [44.509897, 11.3468329], [44.5098626, 11.346839], [44.509039, 11.3465698], [44.5089435, 11.346542], [44.5089152, 11.3465433], [44.5088815, 11.3467696], [44.5082114, 11.3465795], [44.5081004, 11.3465505], [44.5077489, 11.3464546], [44.5069679, 11.3462325], [44.506898, 11.3462125], [44.5068194, 11.3461727], [44.5067882, 11.3461638], [44.5050531, 11.3456653], [44.5048385, 11.3457925], [44.5047459, 11.3462891], [44.5047279, 11.3463653], [44.5047162, 11.3464133], [44.5044489, 11.3475239], [44.5044234, 11.3476303], [44.5038879, 11.3492221], [44.5038697, 11.3492657], [44.5037675, 11.3495115], [44.5036889, 11.349453], [44.5036323, 11.3494101], [44.5035125, 11.3495039], [44.5034727, 11.349471], [44.5033345, 11.3498062], [44.5030346, 11.3505339], [44.5029595, 11.3507165], [44.5025257, 11.3507916], [44.502403, 11.3507612], [44.5023155, 11.3507349], [44.5020996, 11.3505866], [44.5017071, 11.3503123], [44.5016276, 11.350251], [44.5015596, 11.3502016], [44.5014869, 11.3501574], [44.5007978, 11.3496795], [44.5007838, 11.3496696], [44.5007401, 11.3496383], [44.5006981, 11.3496086], [44.5002176, 11.3507743], [44.4997915, 11.3504802], [44.4997766, 11.3505457], [44.4997619, 11.3506093], [44.4997463, 11.3506725], [44.4995397, 11.3505709], [44.4993911, 11.351154], [44.4993774, 11.3512017], [44.499365, 11.3512446], [44.4990744, 11.3524534], [44.4986776, 11.3539946], [44.4986405, 11.3541359], [44.498629, 11.3541804], [44.4986151, 11.3542342], [44.4985938, 11.3543164], [44.4982994, 11.3554688], [44.4980032, 11.3558785], [44.4980597, 11.3561706], [44.4968201, 11.3562964], [44.4965176, 11.3563325], [44.4965785, 11.3566284], [44.4965824, 11.3567027], [44.4965065, 11.3567115], [44.4947911, 11.356905], [44.4943071, 11.3569603], [44.4941548, 11.3569776], [44.4940773, 11.3569865], [44.4939118, 11.3570058], [44.4938439, 11.3570137], [44.4937671, 11.3570226], [44.4927329, 11.3571427], [44.4924718, 11.357173], [44.492326, 11.35719], [44.4904372, 11.3574102], [44.4902679, 11.3574309], [44.4899419, 11.3574695], [44.489731, 11.3574914], [44.4896089, 11.3575036], [44.4895706, 11.3575075], [44.4885205, 11.3576128], [44.4874772, 11.3577341], [44.4872725, 11.3577566], [44.4870182, 11.3577847], [44.4870118, 11.3577132], [44.487009, 11.3576769], [44.4869501, 11.3571987], [44.4849711, 11.3558172]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_6112f46145d72cabe03db1b434a590ca);
+        
+    
+            poly_line_1ca5e8c80d102e849faa4fd9610850ab.bindTooltip(
+                `<div>
+                     Shortest Route (4565m)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_80bf6839544a9c4231c90cae2e323327 = L.polyline(
+                [[44.5150671, 11.3453814], [44.5151141, 11.3440901], [44.5141776, 11.3438372], [44.5135026, 11.3436607], [44.5134423, 11.3436459], [44.5134286, 11.3437521], [44.513388, 11.3437416], [44.5133746, 11.3437264], [44.5125048, 11.3435163], [44.5123405, 11.3434783], [44.5122506, 11.3441653], [44.511373, 11.3449745], [44.5113471, 11.3449279], [44.5112819, 11.3449108], [44.5112225, 11.3448957], [44.5111847, 11.3449276], [44.5111706, 11.3450269], [44.5102579, 11.3448171], [44.5099647, 11.3468553], [44.509897, 11.3468329], [44.5098626, 11.346839], [44.509039, 11.3465698], [44.5089435, 11.346542], [44.5089152, 11.3465433], [44.5088815, 11.3467696], [44.5082114, 11.3465795], [44.5081004, 11.3465505], [44.5077489, 11.3464546], [44.5069679, 11.3462325], [44.506898, 11.3462125], [44.5068194, 11.3461727], [44.5067882, 11.3461638], [44.5050531, 11.3456653], [44.5048385, 11.3457925], [44.5047459, 11.3462891], [44.505092, 11.3464757], [44.5050806, 11.346534], [44.5038697, 11.3492657], [44.5037675, 11.3495115], [44.5036889, 11.349453], [44.5034956, 11.3499222], [44.5030715, 11.3509573], [44.5029545, 11.3508605], [44.502914, 11.350827], [44.5029595, 11.3507165], [44.5025257, 11.3507916], [44.502403, 11.3507612], [44.5023155, 11.3507349], [44.5020996, 11.3505866], [44.5017468, 11.3514604], [44.5014872, 11.351956], [44.5011523, 11.3516044], [44.5011149, 11.3516853], [44.4997766, 11.3505457], [44.4997619, 11.3506093], [44.4997463, 11.3506725], [44.4995021, 11.351684], [44.4988992, 11.3541025], [44.4988628, 11.3542452], [44.4988513, 11.3542879], [44.4988392, 11.3543335], [44.4988012, 11.3544073], [44.4985938, 11.3543164], [44.4982994, 11.3554688], [44.4980032, 11.3558785], [44.4980597, 11.3561706], [44.4968201, 11.3562964], [44.4965176, 11.3563325], [44.4965785, 11.3566284], [44.4965824, 11.3567027], [44.4965065, 11.3567115], [44.4965167, 11.3569118], [44.4964983, 11.3569139], [44.4959446, 11.3569768], [44.494097, 11.3572029], [44.4940022, 11.3572146], [44.4938533, 11.3572313], [44.4924881, 11.3573829], [44.4903125, 11.3576202], [44.4899492, 11.3576497], [44.4897365, 11.3576666], [44.4895799, 11.3576824], [44.4895706, 11.3575075], [44.4885205, 11.3576128], [44.4874772, 11.3577341], [44.4872725, 11.3577566], [44.4870182, 11.3577847], [44.4870118, 11.3577132], [44.487009, 11.3576769], [44.4869501, 11.3571987], [44.4849711, 11.3558172]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_6112f46145d72cabe03db1b434a590ca);
+        
+    
+            poly_line_80bf6839544a9c4231c90cae2e323327.bindTooltip(
+                `<div>
+                     Comfort Route (4801m — cooler & greener)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_dcdc94d05ed950dc0254c3461e510f8b = L.marker(
+                [44.5150671, 11.3453814],
+                {
+}
+            ).addTo(map_6112f46145d72cabe03db1b434a590ca);
+        
+    
+            var icon_061a603a6ef61ac2285d1da031013d3e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "play",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b375363116aff2e8a5f730b107ba59ce = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1afc84b932c75eb43c69a4e2fe839f6d = $(`<div id="html_1afc84b932c75eb43c69a4e2fe839f6d" style="width: 100.0%; height: 100.0%;">START: Bolognina</div>`)[0];
+                popup_b375363116aff2e8a5f730b107ba59ce.setContent(html_1afc84b932c75eb43c69a4e2fe839f6d);
+            
+        
+
+        marker_dcdc94d05ed950dc0254c3461e510f8b.bindPopup(popup_b375363116aff2e8a5f730b107ba59ce)
+        ;
+
+        
+    
+    
+                marker_dcdc94d05ed950dc0254c3461e510f8b.setIcon(icon_061a603a6ef61ac2285d1da031013d3e);
+            
+    
+            var marker_f5a9627fbbfb682514b0961a62cb53a9 = L.marker(
+                [44.4849711, 11.3558172],
+                {
+}
+            ).addTo(map_6112f46145d72cabe03db1b434a590ca);
+        
+    
+            var icon_89dffe266df619b3af3182ba94b11b8a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "stop",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c5fc9f4c9b34dde0a5831423adcc35b6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7838a7f707449bc7b7393aef9e30551d = $(`<div id="html_7838a7f707449bc7b7393aef9e30551d" style="width: 100.0%; height: 100.0%;">END: Giardini Margherita</div>`)[0];
+                popup_c5fc9f4c9b34dde0a5831423adcc35b6.setContent(html_7838a7f707449bc7b7393aef9e30551d);
+            
+        
+
+        marker_f5a9627fbbfb682514b0961a62cb53a9.bindPopup(popup_c5fc9f4c9b34dde0a5831423adcc35b6)
+        ;
+
+        
+    
+    
+                marker_f5a9627fbbfb682514b0961a62cb53a9.setIcon(icon_89dffe266df619b3af3182ba94b11b8a);
+            
+</script>
+</html>
